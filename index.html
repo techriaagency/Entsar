@@ -1,0 +1,2443 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>حكايتنا</title>
+
+  <link rel="icon" type="image/png" href="image/LOGO.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Cairo:wght@300;400;600;700&display=swap"
+    rel="stylesheet">
+
+
+  <style>
+
+    /* =========================================================
+       COLORS
+    ========================================================= */
+
+    :root {
+
+      --paper: #FFF7EB;
+      --paper-deep: #F9ECE2;
+
+      --ink: #3A1015;
+
+      --wine: #8B1E2D;
+      --wine-deep: #651722;
+
+      --accent: #A8434C;
+
+      --blush: #F1DDD4;
+
+      --line: rgba(139,30,45,0.18);
+
+    }
+
+
+    * {
+      box-sizing: border-box;
+    }
+
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+
+    body {
+
+      margin: 0;
+
+      background: var(--paper);
+
+      color: var(--ink);
+
+      font-family: 'Cairo', sans-serif;
+
+      background-image:
+
+        radial-gradient(
+          circle at 15% 20%,
+          rgba(139,30,45,0.06),
+          transparent 40%
+        ),
+
+        radial-gradient(
+          circle at 85% 75%,
+          rgba(139,30,45,0.09),
+          transparent 45%
+        );
+
+      overflow-x: hidden;
+    }
+
+
+    .display {
+      font-family: 'Aref Ruqaa', serif;
+    }
+
+
+    /* =========================================================
+       HERO
+    ========================================================= */
+
+    .hero {
+
+      min-height: 34vh;
+
+      display: flex;
+
+      flex-direction: column;
+
+      align-items: center;
+
+      justify-content: center;
+
+      text-align: center;
+
+      padding: 26px 20px;
+
+      position: relative;
+
+      overflow: hidden;
+    }
+
+
+    @media (max-width:640px) {
+
+      .hero {
+
+        min-height: 26vh;
+
+        padding: 18px 16px;
+      }
+
+    }
+
+
+    .hero-heart-wrap {
+
+      position: relative;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      gap: 6px;
+
+      flex-wrap: wrap;
+    }
+
+
+    .hero-arrow {
+
+      display: flex;
+
+      flex-direction: row;
+
+      align-items: center;
+
+      gap: 8px;
+
+      color: var(--wine);
+    }
+
+
+    .hero-arrow .letter {
+
+      font-family: 'Aref Ruqaa', serif;
+
+      font-size: 2.3rem;
+
+      color: var(--wine-deep);
+
+      line-height: 1;
+    }
+
+
+    .hero-arrow .arrow-svg {
+
+      width: 66px;
+
+      height: 38px;
+
+      overflow: visible;
+    }
+
+
+    .hero-arrow .arrow-svg.flip {
+
+      transform: scaleX(-1);
+    }
+
+
+    /* =========================================================
+       صورة القلب فوق
+       ========================================================= */
+
+    .hero-heart-photo {
+
+      width: min(38vw,170px);
+
+      aspect-ratio: 32 / 29;
+
+      margin: 0 auto;
+
+      position: relative;
+
+      z-index: 2;
+
+      animation:
+        heartPulse 2.6s ease-in-out infinite;
+    }
+
+
+    @keyframes heartPulse {
+
+      0%,
+      100% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.08);
+      }
+
+    }
+
+
+    .heart-visual {
+
+      position: absolute;
+
+      inset: 0;
+
+      width: 100%;
+
+      height: 100%;
+
+      object-fit: cover;
+
+      background-color: var(--blush);
+
+      --heart-svg:
+        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 29"><path d="M23.6,0c-3.4,0-6.3,2.7-7.6,5.6C14.7,2.7,11.8,0,8.4,0C3.8,0,0,3.6,0,8.4c0,9.4,10.5,13.7,16,20c5.5-6.3,16-10.6,16-20C32,3.6,28.2,0,23.6,0z"/></svg>');
+
+      -webkit-mask-image: var(--heart-svg);
+
+      mask-image: var(--heart-svg);
+
+      -webkit-mask-size: contain;
+
+      mask-size: contain;
+
+      -webkit-mask-repeat: no-repeat;
+
+      mask-repeat: no-repeat;
+
+      -webkit-mask-position: center;
+
+      mask-position: center;
+    }
+
+
+    @media (max-width:560px) {
+
+      .hero-arrow .arrow-svg {
+
+        width: 42px;
+
+        height: 24px;
+      }
+
+
+      .hero-arrow .letter {
+
+        font-size: 1.7rem;
+      }
+
+    }
+
+
+    /* =========================================================
+       STITCH
+    ========================================================= */
+
+    .stitch {
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      gap: 10px;
+
+      margin: 6px auto 40px;
+
+      color: var(--accent);
+    }
+
+
+    .stitch span {
+
+      width: 6px;
+
+      height: 6px;
+
+      border-radius: 50%;
+
+      background: var(--accent);
+
+      opacity: .6;
+    }
+
+
+    .stitch::before,
+    .stitch::after {
+
+      content: "";
+
+      flex: 1;
+
+      max-width: 120px;
+
+      height: 1px;
+
+      background: var(--line);
+    }
+
+
+    /* =========================================================
+       SECTIONS
+    ========================================================= */
+
+    section {
+
+      padding: 70px 6vw;
+
+      position: relative;
+    }
+
+
+    .section-head {
+
+      text-align: center;
+
+      margin-bottom: 44px;
+    }
+
+
+    .section-head .eyebrow {
+
+      letter-spacing: .3em;
+
+      font-size: .72rem;
+
+      color: var(--accent);
+
+      font-weight: 700;
+
+      text-transform: uppercase;
+    }
+
+
+    .section-head h2 {
+
+      font-family: 'Aref Ruqaa', serif;
+
+      font-size:
+        clamp(1.9rem,4vw,2.8rem);
+
+      color: var(--wine-deep);
+
+      margin: 8px 0 6px;
+    }
+
+
+    /* =========================================================
+       PHOTO SECTION
+    ========================================================= */
+
+    #photos {
+
+      background:
+        linear-gradient(
+          180deg,
+          transparent,
+          var(--paper-deep) 15%,
+          var(--paper-deep) 85%,
+          transparent
+        );
+    }
+
+
+    .gallery-wrap {
+
+      position: relative;
+    }
+
+
+    .hearts-field {
+
+      position: absolute;
+
+      inset: 0;
+
+      pointer-events: none;
+
+      overflow: hidden;
+
+      z-index: 1;
+    }
+
+
+    .heart-particle {
+
+      position: absolute;
+
+      bottom: -30px;
+
+      color: var(--accent);
+
+      font-size: 18px;
+
+      opacity: 0;
+
+      animation:
+        floatHeart 6s linear forwards;
+    }
+
+
+    @keyframes floatHeart {
+
+      0% {
+
+        transform:
+          translateY(0)
+          scale(.5)
+          rotate(0deg);
+
+        opacity: 0;
+      }
+
+
+      12% {
+        opacity: .9;
+      }
+
+
+      100% {
+
+        transform:
+          translateY(-520px)
+          scale(1.15)
+          rotate(var(--rot,15deg));
+
+        opacity: 0;
+      }
+
+    }
+
+
+    /* =========================================================
+       PHOTO GRID
+       ========================================================= */
+
+    .photo-grid {
+
+      position: relative;
+
+      z-index: 2;
+
+      width: 100%;
+
+      max-width: 900px;
+
+      margin: 26px auto 0;
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(4,1fr);
+
+      gap: 25px;
+    }
+
+
+    /* =========================================================
+       POLAROID
+       ========================================================= */
+
+    .polaroid-card {
+
+      position: relative;
+
+      width: 100%;
+
+      background: #fff;
+
+      padding:
+        5px
+        5px
+        16px;
+
+      border-radius: 3px;
+
+      box-shadow:
+        0 10px 22px
+        rgba(58,16,21,.20);
+
+      transform:
+        rotate(var(--r,0deg));
+
+      transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+    }
+
+
+    /* الميلان التلقائي */
+    .polaroid-card:nth-child(4n+1) {
+      --r: -3deg;
+    }
+
+
+    .polaroid-card:nth-child(4n+2) {
+      --r: 2deg;
+    }
+
+
+    .polaroid-card:nth-child(4n+3) {
+      --r: -2deg;
+    }
+
+
+    .polaroid-card:nth-child(4n+4) {
+      --r: 3deg;
+    }
+
+
+    .polaroid-card:hover {
+
+      transform:
+        rotate(0deg)
+        scale(1.08);
+
+      z-index: 50;
+
+      box-shadow:
+        0 16px 30px
+        rgba(58,16,21,.32);
+    }
+
+
+    .polaroid-photo {
+
+      display: block;
+
+      width: 100%;
+
+      aspect-ratio: 4 / 5;
+
+      object-fit: cover;
+
+      background-color: var(--blush);
+
+      border-radius: 2px;
+    }
+
+
+    /* =========================================================
+       TABLET
+       ========================================================= */
+
+    @media (max-width:900px) {
+
+      .photo-grid {
+
+        grid-template-columns:
+          repeat(3,1fr);
+
+        gap: 20px;
+
+        max-width: 700px;
+      }
+
+    }
+
+
+    /* =========================================================
+       MOBILE
+       ========================================================= */
+
+    @media (max-width:640px) {
+
+      .photo-grid {
+
+        width: 92%;
+
+        max-width: 420px;
+
+        grid-template-columns:
+          repeat(2,1fr);
+
+        gap: 16px;
+
+        margin-top: 25px;
+      }
+
+
+      .polaroid-card {
+
+        padding:
+          5px
+          5px
+          14px;
+      }
+
+
+      .polaroid-card:hover {
+
+        transform:
+          rotate(0deg)
+          scale(1.04);
+      }
+
+    }
+
+
+    /* =========================================================
+       VIDEOS
+    ========================================================= */
+
+    #videos {
+      overflow: hidden;
+    }
+
+
+    .film-strip {
+
+      display: flex;
+
+      gap: 24px;
+
+      max-width: 420px;
+
+      margin: 0 auto;
+
+      padding: 30px 24px 26px;
+
+      overflow-x: auto;
+
+      scroll-snap-type: x mandatory;
+
+      -webkit-overflow-scrolling: touch;
+    }
+
+
+    .film-strip::-webkit-scrollbar {
+      height: 6px;
+    }
+
+
+    .film-strip::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+
+    .film-strip::-webkit-scrollbar-thumb {
+
+      background: var(--accent);
+
+      border-radius: 999px;
+    }
+
+
+    .film-card {
+
+      position: relative;
+
+      flex: 0 0 auto;
+
+      scroll-snap-align: center;
+
+      width: min(70vw,260px);
+
+      background:
+        linear-gradient(
+          160deg,
+          #2c1216,
+          #180a0c
+        );
+
+      border-radius: 16px;
+
+      padding:
+        16px
+        10px
+        22px;
+
+      transform:
+        rotate(var(--fr,0deg));
+
+      transition:
+        transform .35s
+        cubic-bezier(.22,.9,.35,1),
+        box-shadow .35s ease;
+
+      box-shadow:
+        0 16px 32px
+        rgba(58,16,21,.35);
+    }
+
+
+    .film-card:nth-child(5n+1) {
+      --fr: -4deg;
+    }
+
+
+    .film-card:nth-child(5n+2) {
+      --fr: 3deg;
+    }
+
+
+    .film-card:nth-child(5n+3) {
+      --fr: -2deg;
+    }
+
+
+    .film-card:nth-child(5n+4) {
+      --fr: 5deg;
+    }
+
+
+    .film-card:nth-child(5n+5) {
+      --fr: -5deg;
+    }
+
+
+    .film-card:hover {
+
+      transform:
+        rotate(0deg)
+        scale(1.06);
+
+      z-index: 5;
+
+      box-shadow:
+        0 24px 46px
+        rgba(58,16,21,.5);
+    }
+
+
+    .film-card::before,
+    .film-card::after {
+
+      content: "";
+
+      position: absolute;
+
+      left: 0;
+
+      right: 0;
+
+      height: 16px;
+
+      background-image:
+        radial-gradient(
+          circle,
+          var(--paper) 3px,
+          transparent 3.6px
+        );
+
+      background-size:
+        22px 16px;
+
+      background-repeat: repeat-x;
+
+      background-position:
+        8px center;
+
+      opacity: .9;
+    }
+
+
+    .film-card::before {
+      top: 3px;
+    }
+
+
+    .film-card::after {
+      bottom: 3px;
+    }
+
+
+    .film-slate {
+
+      position: absolute;
+
+      top: -12px;
+
+      right: -10px;
+
+      width: 36px;
+
+      height: 36px;
+
+      border-radius: 50%;
+
+      background: var(--wine);
+
+      color: #fff;
+
+      font-family: 'Aref Ruqaa',serif;
+
+      font-size: 15px;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      box-shadow:
+        0 6px 14px
+        rgba(0,0,0,.35);
+
+      z-index: 2;
+    }
+
+
+    .film-frame {
+
+      margin-top: 18px;
+
+      border-radius: 9px;
+
+      overflow: hidden;
+
+      background: #000;
+
+      aspect-ratio: 3 / 4;
+    }
+
+
+    .film-frame video {
+
+      width: 100%;
+
+      height: 100%;
+
+      object-fit: cover;
+
+      display: block;
+
+      background: #000;
+    }
+
+
+    .film-hint {
+
+      text-align: center;
+
+      font-size: .75rem;
+
+      color: var(--wine-deep);
+
+      opacity: .55;
+
+      margin-top: -8px;
+
+      margin-bottom: 8px;
+    }
+
+
+    /* =========================================================
+       WISHLIST
+    ========================================================= */
+
+    #wishlist {
+      background: var(--paper);
+    }
+
+
+    .wish-add {
+
+      max-width: 520px;
+
+      margin: 0 auto 40px;
+
+      display: flex;
+
+      gap: 8px;
+    }
+
+
+    .wish-add input {
+
+      flex: 1;
+
+      padding: 12px 16px;
+
+      border-radius: 999px;
+
+      border: 1px solid var(--line);
+
+      font-family: 'Cairo';
+
+      background: #fff;
+
+      color: var(--ink);
+
+      font-size: .9rem;
+    }
+
+
+    .wish-add button {
+
+      background: var(--wine);
+
+      color: #fff;
+
+      border: none;
+
+      border-radius: 999px;
+
+      padding: 0 22px;
+
+      font-family: 'Cairo';
+
+      font-weight: 600;
+
+      cursor: pointer;
+
+      transition: .2s;
+    }
+
+
+    .wish-add button:hover {
+      background: var(--wine-deep);
+    }
+
+
+    .wish-columns {
+
+      display: grid;
+
+      grid-template-columns:
+        1fr 1fr;
+
+      gap: 28px;
+
+      max-width: 900px;
+
+      margin: 0 auto;
+    }
+
+
+    @media (max-width:640px) {
+
+      .wish-columns {
+        grid-template-columns: 1fr;
+      }
+
+    }
+
+
+    .wish-col h3 {
+
+      font-family: 'Aref Ruqaa';
+
+      font-size: 1.4rem;
+
+      color: var(--wine-deep);
+
+      text-align: center;
+
+      margin-bottom: 16px;
+    }
+
+
+    .wish-list {
+
+      list-style: none;
+
+      padding: 0;
+
+      margin: 0;
+
+      display: flex;
+
+      flex-direction: column;
+
+      gap: 10px;
+    }
+
+
+    .wish-item {
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 10px;
+
+      background: #fff;
+
+      border: 1px solid var(--line);
+
+      border-radius: 12px;
+
+      padding: 10px 14px;
+
+      font-size: .92rem;
+    }
+
+
+    .wish-item.done {
+      opacity: .6;
+    }
+
+
+    .wish-item.done span.txt {
+      text-decoration: line-through;
+    }
+
+
+    .wish-item .check {
+
+      width: 20px;
+
+      height: 20px;
+
+      border-radius: 50%;
+
+      border: 2px solid var(--wine);
+
+      cursor: pointer;
+
+      flex: none;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      color: var(--wine);
+
+      font-size: .7rem;
+    }
+
+
+    .wish-item.done .check {
+
+      background: var(--wine);
+
+      color: #fff;
+    }
+
+
+    .wish-item span.txt {
+      flex: 1;
+    }
+
+
+    .wish-item .del {
+
+      border: none;
+
+      background: none;
+
+      color: var(--accent);
+
+      cursor: pointer;
+
+      font-size: 1rem;
+
+      flex: none;
+    }
+
+
+    .empty-note {
+
+      text-align: center;
+
+      color: var(--ink);
+
+      opacity: .5;
+
+      font-size: .85rem;
+
+      padding: 10px 0;
+    }
+
+
+    /* =========================================================
+       FOOTER
+    ========================================================= */
+
+    footer {
+
+      text-align: center;
+
+      padding: 50px 20px 60px;
+
+      color: var(--wine-deep);
+    }
+
+
+    footer .display {
+
+      font-size: 1.3rem;
+
+      opacity: .85;
+    }
+
+
+    /* =========================================================
+       REDUCED MOTION
+    ========================================================= */
+
+    @media (prefers-reduced-motion: reduce) {
+
+      .heart-particle {
+
+        animation: none;
+
+        display: none;
+      }
+
+
+      html {
+        scroll-behavior: auto;
+      }
+
+    }
+    /* =========================================================
+   LOVE LETTER - ورقة الرسالة
+========================================================= */
+
+#love-letter{
+  padding:80px 6vw 90px;
+  background:
+    linear-gradient(
+      180deg,
+      var(--paper),
+      var(--paper-deep) 50%,
+      var(--paper)
+    );
+}
+
+.letter-container{
+  max-width:780px;
+  margin:0 auto;
+  position:relative;
+}
+
+/* الورقة نفسها */
+.letter-paper{
+  position:relative;
+  background:
+    linear-gradient(
+      rgba(255,255,255,.25),
+      rgba(255,255,255,.25)
+    ),
+    #fffaf0;
+
+  padding:65px 75px 55px;
+
+  border-radius:3px;
+
+  box-shadow:
+    0 18px 35px rgba(58,16,21,.13),
+    0 3px 8px rgba(58,16,21,.08);
+
+  transform:rotate(-0.5deg);
+
+  border:1px solid rgba(139,30,45,.12);
+}
+
+/* إطار داخلي بسيط */
+.letter-paper::before{
+  content:"";
+  position:absolute;
+  inset:14px;
+
+  border:1px solid rgba(139,30,45,.12);
+
+  pointer-events:none;
+}
+
+/* خطوط الورقة */
+.letter-paper::after{
+  content:"";
+  position:absolute;
+  left:35px;
+  right:35px;
+  top:125px;
+  bottom:35px;
+
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 34px,
+      rgba(139,30,45,.055) 35px
+    );
+
+  pointer-events:none;
+}
+
+/* دبوس / ختم القلب */
+.letter-seal{
+  position:absolute;
+  top:-22px;
+  left:50%;
+
+  transform:translateX(-50%) rotate(4deg);
+
+  width:52px;
+  height:52px;
+
+  border-radius:50%;
+
+  background:var(--wine);
+
+  color:#fff;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  font-size:20px;
+
+  box-shadow:
+    0 7px 15px rgba(58,16,21,.2);
+
+  z-index:5;
+}
+
+/* عنوان الرسالة */
+.letter-heading{
+  position:relative;
+  z-index:2;
+
+  text-align:center;
+
+  margin-bottom:35px;
+}
+
+.letter-heading .small{
+  font-size:.75rem;
+  color:var(--accent);
+
+  letter-spacing:.15em;
+
+  margin-bottom:8px;
+}
+
+.letter-heading h2{
+  margin:0;
+
+  font-family:'Aref Ruqaa',serif;
+
+  color:var(--wine-deep);
+
+  font-size:clamp(2rem,5vw,3rem);
+}
+
+.letter-heading .line{
+  width:65px;
+  height:1px;
+
+  background:var(--accent);
+
+  margin:18px auto 0;
+
+  opacity:.5;
+}
+
+/* نص الرسالة */
+.letter-text{
+  position:relative;
+  z-index:2;
+
+  text-align:right;
+
+  color:var(--ink);
+
+  font-size:.98rem;
+
+  line-height:2.35;
+}
+
+.letter-text p{
+  margin:0 0 22px;
+}
+
+.letter-text .opening{
+  font-family:'Aref Ruqaa',serif;
+
+  color:var(--wine-deep);
+
+  font-size:1.45rem;
+
+  margin-bottom:25px;
+}
+
+.letter-text .highlight{
+  text-align:center;
+
+  font-family:'Aref Ruqaa',serif;
+
+  font-size:1.35rem;
+
+  color:var(--wine);
+
+  margin:30px 0;
+}
+
+.letter-signature{
+  position:relative;
+  z-index:2;
+
+  text-align:left;
+
+  margin-top:35px;
+
+  font-family:'Aref Ruqaa',serif;
+
+  font-size:1.45rem;
+
+  color:var(--wine-deep);
+}
+
+/* زخرفة صغيرة أسفل الورقة */
+.letter-bottom{
+  position:relative;
+  z-index:2;
+
+  text-align:center;
+
+  margin-top:30px;
+
+  color:var(--accent);
+
+  font-size:12px;
+
+  letter-spacing:8px;
+}
+
+@media(max-width:640px){
+
+  #love-letter{
+    padding:65px 5vw 75px;
+  }
+
+  .letter-paper{
+    padding:55px 28px 40px;
+
+    transform:rotate(0deg);
+  }
+
+  .letter-paper::after{
+    left:20px;
+    right:20px;
+  }
+
+  .letter-text{
+    font-size:.88rem;
+    line-height:2.2;
+  }
+
+  .letter-text .opening{
+    font-size:1.25rem;
+  }
+
+  .letter-text .highlight{
+    font-size:1.2rem;
+  }
+
+  .letter-signature{
+    font-size:1.25rem;
+  }
+
+}
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+  <!-- =========================================================
+       HERO
+  ========================================================= -->
+
+  <section class="hero" id="top">
+
+
+    <svg
+      width="0"
+      height="0"
+      style="position:absolute">
+
+      <defs>
+
+        <marker
+          id="arrowHead"
+          viewBox="0 0 10 10"
+          refX="7"
+          refY="5"
+          markerWidth="6"
+          markerHeight="6"
+          orient="auto-start-reverse">
+
+          <path
+            d="M0,0 L10,5 L0,10 z"
+            fill="currentColor">
+          </path>
+
+        </marker>
+
+      </defs>
+
+    </svg>
+
+
+    <div
+      class="hearts-field"
+      id="heartsField">
+    </div>
+
+
+    <div class="hero-heart-wrap">
+
+
+      <div class="hero-arrow">
+
+        <span class="letter">
+          M
+        </span>
+
+
+        <svg
+          class="arrow-svg"
+          viewBox="0 0 70 40"
+          xmlns="http://www.w3.org/2000/svg">
+
+          <path
+            d="M4,34 C24,40 42,0 66,20"
+            stroke="currentColor"
+            stroke-width="2.5"
+            fill="none"
+            marker-end="url(#arrowHead)">
+          </path>
+
+        </svg>
+
+      </div>
+
+
+      <!-- =====================================================
+           صورة القلب فوق الصفحة
+           ===================================================== -->
+
+      <div class="hero-heart-photo">
+
+        <img
+          class="heart-visual"
+          src="انتصار/1 (4).jpeg"
+          alt="صورتكوا">
+
+      </div>
+
+
+      <div class="hero-arrow">
+
+
+        <svg
+          class="arrow-svg flip"
+          viewBox="0 0 70 40"
+          xmlns="http://www.w3.org/2000/svg">
+
+          <path
+            d="M4,34 C24,40 42,0 66,20"
+            stroke="currentColor"
+            stroke-width="2.5"
+            fill="none"
+            marker-end="url(#arrowHead)">
+          </path>
+
+        </svg>
+
+
+        <span class="letter">
+          E
+        </span>
+
+      </div>
+
+
+    </div>
+
+  </section>
+
+
+
+  <div class="stitch">
+
+    <span></span>
+    <span></span>
+    <span></span>
+
+  </div>
+
+
+
+  <!-- =========================================================
+       PHOTO GALLERY
+  ========================================================= -->
+
+  <section id="photos">
+
+
+    <div class="gallery-wrap">
+
+
+      <div class="section-head">
+
+        <h2 class="display">
+          صورنا أنا وانتي
+        </h2>
+
+      </div>
+
+
+      <!--
+        ========================================================
+        كل الصور هنا عادية.
+        تقدري تضيفي أي عدد من الصور.
+        ========================================================
+      -->
+
+      <div class="photo-grid">
+
+
+        <div class="polaroid-card">
+          <img
+            class="polaroid-photo"
+            src="انتصار/1 (1).jpeg"
+            alt="صورة 1">
+        </div>
+
+
+      
+
+        <div class="polaroid-card">
+          <img
+            class="polaroid-photo"
+            src="مجمعه/2 (10).jpeg"
+            alt="صورة 12">
+        </div>
+
+        <div class="polaroid-card">
+          <img
+            class="polaroid-photo"
+            src="انتصار/1 (3).jpeg"
+            alt="صورة 4">
+        </div>
+
+        <div class="polaroid-card">
+          <img
+            class="polaroid-photo"
+            src="انتصار/1 (2).jpeg"
+            alt="صورة 3">
+        </div>
+
+
+        <div class="polaroid-card">
+          <img
+            class="polaroid-photo"
+            src="انتصار/1 (8).jpeg"
+            alt="صورة 9">
+        </div>
+
+
+        <div class="polaroid-card">
+          <img
+            class="polaroid-photo"
+            src="انتصار/1 (4).jpeg"
+            alt="صورة 5">
+        </div>
+
+
+        <div class="polaroid-card">
+          <img
+            class="polaroid-photo"
+            src="انتصار/1 (5).jpeg"
+            alt="صورة 6">
+        </div>
+
+
+        <div class="polaroid-card">
+          <img
+            class="polaroid-photo"
+            src="انتصار/1 (6).jpeg"
+            alt="صورة 7">
+        </div>
+
+
+        <div class="polaroid-card">
+          <img
+            class="polaroid-photo"
+            src="انتصار/1 (7).jpeg"
+            alt="صورة 8">
+        </div>
+
+
+
+
+        <div class="polaroid-card">
+          <img
+            class="polaroid-photo"
+            src="انتصار/1 (9).jpeg"
+            alt="صورة 10">
+        </div>
+
+
+        <div class="polaroid-card">
+          <img
+            class="polaroid-photo"
+            src="مجمعه/2 (1).jpeg"
+            alt="صورة 11">
+        </div>
+
+
+
+        <div class="polaroid-card">
+          <img
+            class="polaroid-photo"
+            src="مجمعه/2 (11).jpeg"
+            alt="صورة 13">
+        </div>
+
+
+        <div class="polaroid-card">
+          <img
+            class="polaroid-photo"
+            src="مجمعه/2 (12).jpeg"
+            alt="صورة 14">
+        </div>
+
+
+        <div class="polaroid-card">
+          <img
+            class="polaroid-photo"
+            src="مجمعه/2 (13).jpeg"
+            alt="صورة 15">
+        </div>
+
+
+        <div class="polaroid-card">
+          <img
+            class="polaroid-photo"
+            src="مجمعه/2 (14).jpeg"
+            alt="صورة 16">
+        </div>
+
+
+        <div class="polaroid-card">
+          <img
+            class="polaroid-photo"
+            src="مجمعه/2 (15).jpeg"
+            alt="صورة 17">
+        </div>
+
+
+        <div class="polaroid-card">
+          <img
+            class="polaroid-photo"
+            src="مجمعه/2 (16).jpeg"
+            alt="صورة 18">
+        </div>
+
+
+        <div class="polaroid-card">
+          <img
+            class="polaroid-photo"
+            src="مجمعه/2 (2).jpeg"
+            alt="صورة 19">
+        </div>
+
+
+        <div class="polaroid-card">
+          <img
+            class="polaroid-photo"
+            src="مجمعه/2 (3).jpeg"
+            alt="صورة 20">
+        </div>
+
+
+        <div class="polaroid-card">
+          <img
+            class="polaroid-photo"
+            src="مجمعه/2 (4).jpeg"
+            alt="صورة 21">
+        </div>
+
+
+        <div class="polaroid-card">
+          <img
+            class="polaroid-photo"
+            src="مجمعه/2 (5).jpeg"
+            alt="صورة 22">
+        </div>
+
+
+        <!--
+          لإضافة صورة جديدة:
+          
+          <div class="polaroid-card">
+            <img
+              class="polaroid-photo"
+              src="اسم-الصورة.jpeg"
+              alt="صورة جديدة">
+          </div>
+
+          ومش محتاجة تعدلي أي CSS.
+        -->
+
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <div class="stitch">
+
+    <span></span>
+    <span></span>
+    <span></span>
+
+  </div>
+
+
+
+  <!-- =========================================================
+       VIDEOS
+  ========================================================= -->
+
+  <section id="videos">
+
+
+    <div class="section-head">
+
+      <h2 class="display">
+        عقبال الذكريات الجاية
+      </h2>
+
+    </div>
+
+
+    <div class="film-hint">
+
+      مرري بإيدك يمين وشمال عشان تتفرجي على كل اللقطات 🎞️
+
+    </div>
+
+
+    <div
+      class="film-strip"
+      id="filmStrip">
+
+
+      <div class="film-card">
+
+        <div class="film-slate">
+          01
+        </div>
+
+
+        <div class="film-frame">
+
+          <video
+            controls
+            src="انتصار/1 (1).mp4"
+            >
+          </video>
+
+        </div>
+
+      </div>
+
+
+      <div class="film-card">
+
+        <div class="film-slate">
+          02
+        </div>
+
+
+        <div class="film-frame">
+
+          <video
+            controls
+            src="مجمعه/2 (1).mp4"
+            >
+          </video>
+
+        </div>
+
+      </div>
+
+
+      <div class="film-card">
+
+        <div class="film-slate">
+          03
+        </div>
+
+
+        <div class="film-frame">
+
+          <video
+            controls
+            src="مجمعه/2 (2).mp4"
+            >
+          </video>
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </section>
+
+
+
+
+
+  </section>
+
+
+<!-- =========================================================
+     LOVE LETTER - رسالة من الزوج لزوجته
+========================================================= -->
+
+<section id="love-letter">
+
+  <div class="letter-container">
+
+    <div class="letter-paper">
+
+      <!-- ختم القلب -->
+      <div class="letter-seal">♥</div>
+
+      <!-- عنوان الرسالة -->
+      <div class="letter-heading">
+
+        <div class="small">
+          رسالة من القلب
+        </div>
+
+        <h2 class="display">
+          إلى زوجتي الغالية
+        </h2>
+
+        <div class="line"></div>
+
+      </div>
+
+      <!-- نص الرسالة -->
+      <div class="letter-text">
+
+        <p class="opening">
+          إلى رفيقة عمري وزوجتي الغالية،
+        </p>
+
+        <p>
+          وأنا مسافر، حبيت أسيب لكِ بين إيديكِ ذكرى صغيرة
+          تجمع بعضًا من أجمل اللحظات التي عشناها معًا.
+        </p>
+
+        <p>
+          سنين طويلة مرت، شاركنا فيها أيامًا كثيرة،
+          بحلوها وتعبها، وفرحها ومسؤولياتها،
+          وربنا رزقنا بأولاد كبروا أمام أعيننا،
+          وكانت كل خطوة في حياتهم جزءًا من حكايتنا.
+        </p>
+
+        <p>
+          يمكن السنين غيرت فينا حاجات كثيرة،
+          لكن وجودك إلى جانبي كان دائمًا من أجمل النعم
+          التي أحمد الله عليها.
+        </p>
+
+        <p>
+          كل صورة هنا ليست مجرد صورة،
+          لكنها ذكرى من عمر طويل جمعنا،
+          ووقت قضيناه معًا،
+          وأيام أتمنى أن تظل دائمًا حاضرة بيننا.
+        </p>
+
+        <p>
+          وأنا بعيد عنك، أتمنى تفتكري دائمًا
+          أن المسافة لا تغير مكانة الإنسان في القلب،
+          وأن لكِ في قلبي مكانًا لا يتغير مهما مرت الأيام.
+        </p>
+
+        <p class="highlight">
+          ربنا يديم بينا المودة والرحمة،
+          ويحفظك لي، ويحفظ لنا أولادنا،
+          ويجمعنا دائمًا على خير. ❤️
+        </p>
+
+        <p>
+          كل سنة وكل ذكرى وكل موقف مر علينا،
+          كان بيضيف فصل جديد لحكايتنا،
+          وأتمنى إن اللي جاي يكون أجمل،
+          ونفضل دايمًا سند لبعض في كل خطوة.
+        </p>
+
+        <div class="letter-signature">
+          زوجك ورفيق عمرك ❤️
+        </div>
+
+        <div class="letter-bottom">
+          • • •
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+  <!-- =========================================================
+       FOOTER
+  ========================================================= -->
+
+  <footer>
+
+    <div class="display">
+      "وما بيننا من محبة، تكفينا مسافة عمر"
+    </div>
+
+  </footer>
+
+
+
+  <!-- =========================================================
+       JAVASCRIPT
+  ========================================================= -->
+
+  <script>
+
+
+    let wishItems = [];
+
+    let heartInterval = null;
+
+
+    /* =========================================================
+       STORAGE
+    ========================================================= */
+
+    const hasClaudeStorage =
+      (typeof window.storage !== 'undefined') &&
+      window.storage &&
+      typeof window.storage.get === 'function';
+
+
+    function lsGet(key) {
+
+      try {
+
+        return localStorage.getItem(key);
+
+      } catch (e) {
+
+        return null;
+
+      }
+
+    }
+
+
+    function lsSet(key, value) {
+
+      try {
+
+        localStorage.setItem(
+          key,
+          value
+        );
+
+      } catch (e) {
+
+        /* ignore */
+
+      }
+
+    }
+
+
+    async function safeGet(key, shared) {
+
+      if (hasClaudeStorage) {
+
+        try {
+
+          const r =
+            await window.storage.get(
+              key,
+              shared
+            );
+
+          return r
+            ? r.value
+            : null;
+
+        } catch (e) {
+
+          return lsGet(key);
+
+        }
+
+      }
+
+      return lsGet(key);
+
+    }
+
+
+    async function safeSet(
+      key,
+      value,
+      shared
+    ) {
+
+      if (hasClaudeStorage) {
+
+        try {
+
+          await window.storage.set(
+            key,
+            value,
+            shared
+          );
+
+        } catch (e) {
+
+          console.error(
+            'storage error',
+            e
+          );
+
+        }
+
+      } else {
+
+        lsSet(
+          key,
+          value
+        );
+
+      }
+
+    }
+
+
+    /* =========================================================
+       VIDEOS
+    ========================================================= */
+
+    (function () {
+
+      const videos =
+        Array.from(
+          document.querySelectorAll(
+            '#filmStrip video'
+          )
+        );
+
+
+      videos.forEach(video => {
+
+        video.addEventListener(
+          'play',
+          () => {
+
+            videos.forEach(other => {
+
+              if (other !== video) {
+
+                other.pause();
+
+              }
+
+            });
+
+          }
+        );
+
+      });
+
+    })();
+
+
+    /* =========================================================
+       FLOATING HEARTS
+    ========================================================= */
+
+    function spawnHeart() {
+
+      const field =
+        document.getElementById(
+          'heartsField'
+        );
+
+
+      const heart =
+        document.createElement(
+          'div'
+        );
+
+
+      heart.className =
+        'heart-particle';
+
+
+      heart.textContent = '♥';
+
+
+      const left =
+        Math.random() * 96 + 2;
+
+
+      const duration =
+        5 + Math.random() * 3;
+
+
+      const size =
+        12 + Math.random() * 16;
+
+
+      const rot =
+        (Math.random() * 40 - 20)
+        + 'deg';
+
+
+      heart.style.left =
+        left + '%';
+
+
+      heart.style.fontSize =
+        size + 'px';
+
+
+      heart.style.animationDuration =
+        duration + 's';
+
+
+      heart.style.setProperty(
+        '--rot',
+        rot
+      );
+
+
+      field.appendChild(
+        heart
+      );
+
+
+      setTimeout(
+        () => heart.remove(),
+        duration * 1000 + 200
+      );
+
+    }
+
+
+    function startHearts() {
+
+      if (heartInterval) return;
+
+
+      heartInterval =
+        setInterval(
+          spawnHeart,
+          550
+        );
+
+    }
+
+
+    startHearts();
+
+
+    /* =========================================================
+       WISHLIST
+    ========================================================= */
+
+    function renderWishlist() {
+
+      const todoList =
+        document.getElementById(
+          'todoList'
+        );
+
+
+      const doneList =
+        document.getElementById(
+          'doneList'
+        );
+
+
+      todoList.innerHTML = '';
+
+      doneList.innerHTML = '';
+
+
+      const todos =
+        wishItems.filter(
+          item => !item.done
+        );
+
+
+      const dones =
+        wishItems.filter(
+          item => item.done
+        );
+
+
+      if (todos.length === 0) {
+
+        todoList.innerHTML =
+          '<li class="empty-note">لسه مفيش أمنيات هنا</li>';
+
+      }
+
+
+      if (dones.length === 0) {
+
+        doneList.innerHTML =
+          '<li class="empty-note">هتظهر هنا كل أمنية تتحقق</li>';
+
+      }
+
+
+      todos.forEach(item => {
+
+        todoList.appendChild(
+          makeWishRow(item)
+        );
+
+      });
+
+
+      dones.forEach(item => {
+
+        doneList.appendChild(
+          makeWishRow(item)
+        );
+
+      });
+
+    }
+
+
+    function makeWishRow(item) {
+
+      const li =
+        document.createElement(
+          'li'
+        );
+
+
+      li.className =
+        'wish-item' +
+        (item.done ? ' done' : '');
+
+
+      li.innerHTML = `
+
+        <div class="check">
+          ${item.done ? '✓' : ''}
+        </div>
+
+        <span class="txt"></span>
+
+        <button
+          class="del"
+          title="حذف">
+          ×
+        </button>
+
+      `;
+
+
+      li.querySelector(
+        '.txt'
+      ).textContent =
+        item.text;
+
+
+      li.querySelector(
+        '.check'
+      ).addEventListener(
+        'click',
+        () => {
+
+          item.done =
+            !item.done;
+
+          saveWishlist();
+
+          renderWishlist();
+
+        }
+      );
+
+
+      li.querySelector(
+        '.del'
+      ).addEventListener(
+        'click',
+        () => {
+
+          wishItems =
+            wishItems.filter(
+              wish =>
+                wish.id !== item.id
+            );
+
+          saveWishlist();
+
+          renderWishlist();
+
+        }
+      );
+
+
+      return li;
+
+    }
+
+
+    function saveWishlist() {
+
+      safeSet(
+        'wishlist',
+        JSON.stringify(wishItems),
+        true
+      );
+
+    }
+
+
+    document
+      .getElementById('wishForm')
+      .addEventListener(
+        'submit',
+        e => {
+
+          e.preventDefault();
+
+
+          const input =
+            document.getElementById(
+              'wishInput'
+            );
+
+
+          const val =
+            input.value.trim();
+
+
+          if (!val) return;
+
+
+          wishItems.push({
+
+            id:
+              Date.now() +
+              Math.random(),
+
+            text: val,
+
+            done: false
+
+          });
+
+
+          input.value = '';
+
+
+          saveWishlist();
+
+          renderWishlist();
+
+        }
+      );
+
+
+    async function loadWishlist() {
+
+      const wishRaw =
+        await safeGet(
+          'wishlist',
+          true
+        );
+
+
+      if (wishRaw) {
+
+        try {
+
+          wishItems =
+            JSON.parse(wishRaw) || [];
+
+        } catch (e) {
+
+          wishItems = [];
+
+        }
+
+      }
+
+
+      renderWishlist();
+
+    }
+
+
+    loadWishlist();
+
+
+  </script>
+
+
+</body>
+
+</html>
