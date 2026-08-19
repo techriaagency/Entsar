@@ -184,6 +184,23 @@
        صورة القلب فوق
        ========================================================= */
 
+    .hero-date {
+      margin-top: 14px;
+      font-family: 'Aref Ruqaa', serif;
+      font-size: clamp(1.15rem, 3vw, 1.55rem);
+      color: var(--wine-deep);
+      letter-spacing: .08em;
+      line-height: 1;
+      opacity: .9;
+    }
+
+    @media (max-width:560px) {
+      .hero-date {
+        margin-top: 10px;
+        font-size: 1.15rem;
+      }
+    }
+
     .hero-heart-photo {
 
       width: min(38vw,170px);
@@ -1374,7 +1391,17 @@
   }
 
 }
-
+.hero-date {
+  width: 100%;
+  text-align: center;
+  margin-top: 14px;
+  font-family: 'Aref Ruqaa', serif;
+  font-size: clamp(1.15rem, 3vw, 1.55rem);
+  color: var(--wine-deep);
+  letter-spacing: .08em;
+  line-height: 1;
+  opacity: .9;
+}
   </style>
 
 </head>
@@ -1455,16 +1482,18 @@
       <!-- =====================================================
            صورة القلب فوق الصفحة
            ===================================================== -->
+<div class="hero-heart-wrap">
 
-      <div class="hero-heart-photo">
+  <div class="hero-arrow">
+    ...
+  </div>
 
-        <img
-          class="heart-visual"
-          src="انتصار/1 (4).jpeg"
-          alt="صورتكوا">
-
-      </div>
-
+  <div class="hero-heart-photo">
+    <img
+      class="heart-visual"
+      src="انتصار/1 (4).jpeg"
+      alt="صورتكوا">
+  </div>
 
       <div class="hero-arrow">
 
@@ -1491,20 +1520,20 @@
 
       </div>
 
-
     </div>
-
+    
   </section>
-
-
-
+  
+  
+  
   <div class="stitch">
 
     <span></span>
     <span></span>
     <span></span>
-
+    
   </div>
+  <div class="hero-date" >27.7.2010</div>
 
 
 
